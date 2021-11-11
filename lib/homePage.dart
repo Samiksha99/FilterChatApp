@@ -9,7 +9,7 @@ class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
 }
-
+List FilterNames=['None', 'Glasses', 'Oval Face', 'Dog', 'Animal', 'Shrink', 'Fox', 'Multiface'];
 class _HomePageState extends State<HomePage> {
   CameraDeepArController cameraDeepArController;
   int currentPage = 0;
@@ -50,46 +50,12 @@ class _HomePageState extends State<HomePage> {
             Align(
               alignment: Alignment.bottomCenter,
               child: Container(
-                padding: EdgeInsets.fromLTRB(20, 0, 20, 5),
-                //height: 250,
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        children: List.generate(8, (p) {
-                          bool active = currentPage == p;
-                          return GestureDetector(
-                            onTap: () {
-                              currentPage = p;
-                              cameraDeepArController.changeMask(p);
-                              setState(() {});
-                            },
-                            child: Container(
-                              margin: EdgeInsets.all(5),
-                              width: active ? 60 : 50,
-                              height: active ? 70 : 60,
-                              alignment: Alignment.center,
-                              decoration: BoxDecoration(
-                                  color:
-                                  active ? Colors.deepPurple : Colors.deepPurple[50],
-                                  shape: BoxShape.circle),
-                              child: Text(
-                                "$p",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    fontSize: active ? 16 : 14,
-                                    color: active? Colors.white : Colors.black, fontWeight: FontWeight.w800),
-                              )
-                            ),
-                          );
-                        }),
-                      ),
-                    ),
                     Padding(
-                      padding: EdgeInsets.all(20.0),
+                      padding: EdgeInsets.only(top:20.0),
                       child: FloatingActionButton(
                         child: Icon(Icons.camera),
                         backgroundColor: Colors.indigo,
@@ -97,7 +63,61 @@ class _HomePageState extends State<HomePage> {
                           cameraDeepArController.snapPhoto();
                         }
                       ),
-                    )
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(top:10.0),
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Container(
+                          color: Colors.white,
+                          child: Row(
+                            children: List.generate(8, (p) {
+                              bool active = currentPage == p;
+                              return GestureDetector(
+                                onTap: () {
+                                  currentPage = p;
+                                  cameraDeepArController.changeMask(p);
+                                  setState(() {});
+                                },
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      margin: EdgeInsets.all(10),
+                                      width: active ? 60 : 50,
+                                      height: active ? 70 : 60,
+                                      alignment: Alignment.center,
+                                      decoration: BoxDecoration(
+                                          color:
+                                          active ? Colors.deepPurple : Colors.deepPurple[50],
+                                          shape: BoxShape.circle),
+                                      child: Text(
+                                        "$p",
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                          fontSize: active ? 16 : 14,
+                                          color: active? Colors.white : Colors.black, fontWeight: FontWeight.w800
+                                        ),
+                                      )
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(bottom:8.0),
+                                      child: Text(FilterNames[p], 
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                        fontSize: active ? 16 : 14,
+                                        color: Colors.black, 
+                                        backgroundColor: Colors.white,
+                                        fontWeight: active? FontWeight.w800: FontWeight.normal
+                                      ),),
+                                    ),
+                                  ],
+                                ),
+                              );
+                            }),
+                          ),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
