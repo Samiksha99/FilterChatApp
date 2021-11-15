@@ -8,10 +8,14 @@ class Login extends StatelessWidget {
       appBar: AppBar(title: Text('Login')),
       body: Container(
           child: Center(
-        child: FlatButton(
-          child: Text('Sign in with Google'),
-          onPressed: Authentication.handleLogin,
-        ),
+        child: Container(
+          decoration: BoxDecoration()
+          child: FlatButton(
+            child: Text('Sign in with Google'),
+            onPressed: Authentication.handleLogin,
+          ),
+        )
+       
       )),
     );
   }
