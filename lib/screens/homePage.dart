@@ -54,15 +54,41 @@ class _HomePageState extends State<HomePage> {
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Padding(
-                      padding: EdgeInsets.only(top:20.0),
-                      child: FloatingActionButton(
-                        child: Icon(Icons.camera),
-                        backgroundColor: Colors.indigo,
-                        onPressed: (){
-                          cameraDeepArController.snapPhoto();
-                        }
-                      ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(left: 20.0,top:20.0),
+                          child: FloatingActionButton(
+                            child: Icon(Icons.photo),
+                            backgroundColor: Colors.indigo,
+                            onPressed: () {}
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(left:20.0, top:20.0),
+                          child: FloatingActionButton(
+                            child: Icon(Icons.camera),
+                            backgroundColor: Colors.indigo,
+                            onPressed: () async{
+                              cameraDeepArController.snapPhoto();
+                              AlertDialog(
+                                title: Text('Image saved in the gallery'),
+                              );
+                            //   Fluttertoast.showToast(
+                            //     msg: 'Image saved at in the gallery', toastLength: Toast.LENGTH_LONG, backgroundColor: Colors.black, textColor: Colors.white);
+                            }
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(left: 20.0,top:20.0),
+                          child: FloatingActionButton(
+                            child: Icon(Icons.chat),
+                            backgroundColor: Colors.indigo,
+                            onPressed: () {}
+                          ),
+                        ),
+                      ],
                     ),
                     Padding(
                       padding: EdgeInsets.only(top:10.0),
