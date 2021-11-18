@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "995829710770",
+    "project_id": "funchat-23835",
+    "storage_bucket": "funchat-23835.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:995829710770:android:102c6724c006c5abf6eeab",
+        "android_client_info": {
+          "package_name": "com.promise.flutter_deepar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "995829710770-1d6qtcil1q6kct9loau8mtu3to3abb2l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.promise.flutter_deepar",
+            "certificate_hash": "d95d61f3a54539f1810111836b9fd0f4e489fc26"
+          }
+        },
+        {
+          "client_id": "995829710770-g2t9jhtmijen7hjr8qnq2o9kbh8d0r1k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBY1OjE_IVZJhyZjDaC38u9ISxHi5vCurU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "995829710770-g2t9jhtmijen7hjr8qnq2o9kbh8d0r1k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
