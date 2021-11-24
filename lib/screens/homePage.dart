@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:funchat/provider/convoProvider.dart';
+import 'package:funchat/screens/profile.dart';
 import 'package:provider/provider.dart';
 import 'package:rwa_deep_ar/rwa_deep_ar.dart';
 
@@ -65,6 +66,31 @@ class _HomePageState extends State<HomePage> {
                   cameraDeepArController = c;
                   setState(() {});
                 }),
+                Align(
+                   alignment: Alignment.topCenter,
+                   child: Container(
+                     child: Row(
+                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                       children: [
+                       Padding(
+                          padding: EdgeInsets.only(left: 10.0, top: 30.0),
+                          child: BackButton(color: Colors.black,
+                          onPressed: (){},),
+                        ),
+                         Padding(
+                          padding: EdgeInsets.only(right: 10.0, top: 30.0),
+                          child: FloatingActionButton(backgroundColor: Colors.indigo, elevation: 10, child: CircleAvatar(backgroundColor: Colors.white,child: Icon(Icons.account_circle_rounded,size: 40,),foregroundColor: Colors.indigo,),onPressed: (){
+                            Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            Profile()));
+                          },)
+                          
+                        ),
+                     ],),
+                   ),
+                ),
             Align(
               alignment: Alignment.bottomCenter,
               child: Container(
