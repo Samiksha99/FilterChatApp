@@ -9,7 +9,7 @@ class Login extends StatelessWidget {
       body: Container(
           child: Center(
         child: Container(
-          decoration: BoxDecoration()
+          decoration: BoxDecoration(),
           child: FlatButton(
             child: Text('Sign in with Google'),
             onPressed: Authentication.handleLogin,
