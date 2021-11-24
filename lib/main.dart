@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:funchat/provider/convoProvider.dart';
 import 'package:funchat/provider/providerInit.dart';
 import 'package:funchat/screens/homePage.dart';
+import 'package:funchat/screens/profile.dart';
 import 'package:funchat/screens/loginScreen.dart';
 import 'package:provider/provider.dart';
 
