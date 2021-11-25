@@ -14,7 +14,7 @@ class Database {
 
   static Stream<List<UserModel>> streamUsersModelUserModel() {
     return _db
-        .collection('usersModelUserModel')
+        .collection('users')
         .snapshots()
         .map((QuerySnapshot list) => list.docs
             .map((DocumentSnapshot snap) => UserModel.fromMap(snap.data()))
@@ -74,7 +74,7 @@ class Database {
           .doc(timestamp);
 
       FirebaseFirestore.instance.runTransaction((Transaction transaction) async {
-        await transaction.set(
+        transaction.set(
           messageDoc,
           <String, dynamic>{
             'idFrom': id,

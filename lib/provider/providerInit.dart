@@ -1,5 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:funchat/main.dart';
 import 'package:provider/provider.dart';
@@ -10,6 +8,7 @@ class ProviderInit extends StatelessWidget {
   Widget build(BuildContext context) {
     return StreamProvider<User>.value(
         value: FirebaseAuth.instance.authStateChanges(),
+        initialData: null,
         child: MaterialApp(
             title: 'FunChat',
             debugShowCheckedModeBanner: false,

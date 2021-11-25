@@ -1,4 +1,5 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
+import 'package:funchat/screens/loginScreen.dart';
 import 'package:funchat/services/database.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -24,7 +25,14 @@ class Authentication {
       await Database.addUser(user);
   }
 
-  static Future<void> handleLogout() async {
+  static Future<void> handleLogout(BuildContext context) async {
+    Navigator.pushAndRemoveUntil(context,MaterialPageRoute(
+        builder:(context)=>Login(),
+      ), 
+      (route) => false
+    );
     await _auth.signOut();
+    print("logged out");
+    
   }
 }

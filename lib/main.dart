@@ -1,11 +1,8 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:funchat/provider/convoProvider.dart';
 import 'package:funchat/provider/providerInit.dart';
 import 'package:funchat/screens/homePage.dart';
-import 'package:funchat/screens/profile.dart';
 import 'package:funchat/screens/loginScreen.dart';
 import 'package:provider/provider.dart';
 

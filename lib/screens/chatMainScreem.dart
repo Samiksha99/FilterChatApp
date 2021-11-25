@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:funchat/models/convo.dart';
 import 'package:funchat/models/user.dart';
 import 'package:funchat/provider/newMessageProvider.dart';
-import 'package:funchat/services/authentication.dart';
 import 'package:funchat/widgets/convoWidget.dart';
 import 'package:provider/provider.dart';
 
@@ -19,9 +18,7 @@ class HomeBuilder extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          IconButton(
-              onPressed: Authentication.handleLogout,
-              icon: Icon(Icons.first_page, size: 30)),
+          
           Text(firebaseUser.displayName, style: TextStyle(fontSize: 18)),
           IconButton(
               onPressed: () => createNewConvo(context),

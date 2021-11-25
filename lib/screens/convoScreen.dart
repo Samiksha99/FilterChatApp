@@ -3,7 +3,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:funchat/models/user.dart';
 import 'package:funchat/services/database.dart';
-import 'package:funchat/widgets/messageList.dart';
 import 'package:bubble/bubble.dart';
 
 class NewConversationScreen extends StatelessWidget {
