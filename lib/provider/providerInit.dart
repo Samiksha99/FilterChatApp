@@ -10,7 +10,7 @@ class ProviderInit extends StatelessWidget {
         value: FirebaseAuth.instance.authStateChanges(),
         initialData: null,
         child: MaterialApp(
-            title: 'FunChat',
+            title: 'FilterChat',
             debugShowCheckedModeBanner: false,
             home: MyApp()));
   }
