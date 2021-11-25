@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:funchat/models/convo.dart';
@@ -19,6 +18,7 @@ class ConversationProvider extends StatelessWidget {
   Widget build(BuildContext context) {
     return StreamProvider<List<Convo>>.value(
         value: Database.streamConversations(user.uid),
+        initialData: [],
         child: ConversationDetailsProvider(user: user));
   }
 }
@@ -36,6 +36,7 @@ class ConversationDetailsProvider extends StatelessWidget {
     return StreamProvider<List<UserModel>>.value(
         value: Database.getUsersByList(
             getUserIds(Provider.of<List<Convo>>(context))),
+        initialData: [],
         child: HomeBuilder());
   }
 

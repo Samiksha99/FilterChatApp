@@ -11,6 +11,7 @@ class NewMessageProvider extends StatelessWidget {
   Widget build(BuildContext context) {
     return StreamProvider<List<UserModel>>.value(
       value: Database.streamUsersModelUserModel(),
+      initialData: [],
       child: NewMessageScreen(),
     );
   }

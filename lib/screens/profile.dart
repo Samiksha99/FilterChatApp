@@ -1,10 +1,23 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:funchat/services/authentication.dart';
+import 'package:provider/provider.dart';
 
 class Profile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+     final User firebaseUser = Provider.of<User>(context);
     return  Scaffold(
+      backgroundColor: Colors.cyan[100],
+      appBar: AppBar(automaticallyImplyLeading: true,
+      actions: [
+        IconButton(
+              onPressed: (){Authentication.handleLogout(context);},
+              icon: Icon(Icons.first_page, size: 30)),
+      ],
+      title: Text('Profile',style: TextStyle(color: Colors.white),),
+      backgroundColor: Colors.black,),
       body: Column(
         children: <Widget>[
           Container(
@@ -12,7 +25,7 @@ class Profile extends StatelessWidget {
               gradient: LinearGradient(
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
-                colors: [Colors.redAccent, Colors.pinkAccent]
+                colors: [Colors.blueAccent, Colors.cyanAccent]
               )
             ),
             child: Container(
@@ -25,7 +38,7 @@ class Profile extends StatelessWidget {
                   children: <Widget>[
                     CircleAvatar(
                       backgroundImage: NetworkImage(
-                        "https://www.rd.com/wp-content/uploads/2017/09/01-shutterstock_476340928-Irina-Bg.jpg",
+                       firebaseUser.photoURL==null? "":firebaseUser.photoURL
                       ),
                       radius: 50.0,
                     ),
@@ -33,10 +46,11 @@ class Profile extends StatelessWidget {
                       height: 10.0,
                     ),
                     Text(
-                      "Alice James",
+                      firebaseUser.displayName,
                       style: TextStyle(
                         fontSize: 22.0,
-                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
                       ),
                     ),
                     SizedBox(
@@ -58,7 +72,7 @@ class Profile extends StatelessWidget {
                                   Text(
                                     "Posts",
                                     style: TextStyle(
-                                      color: Colors.redAccent,
+                                      color: Colors.indigo[900],
                                       fontSize: 22.0,
                                       fontWeight: FontWeight.bold,
                                     ),
@@ -70,7 +84,7 @@ class Profile extends StatelessWidget {
                                     "5200",
                                     style: TextStyle(
                                       fontSize: 20.0,
-                                      color: Colors.pinkAccent,
+                                      color: Colors.indigo[400],
                                     ),
                                   )
                                 ],
@@ -83,7 +97,7 @@ class Profile extends StatelessWidget {
                                   Text(
                                     "Followers",
                                     style: TextStyle(
-                                      color: Colors.redAccent,
+                                      color: Colors.indigo[900],
                                       fontSize: 22.0,
                                       fontWeight: FontWeight.bold,
                                     ),
@@ -95,7 +109,7 @@ class Profile extends StatelessWidget {
                                     "28.5K",
                                     style: TextStyle(
                                       fontSize: 20.0,
-                                      color: Colors.pinkAccent,
+                                      color: Colors.indigo[400],
                                     ),
                                   )
                                 ],
@@ -108,7 +122,7 @@ class Profile extends StatelessWidget {
                                   Text(
                                     "Follow",
                                     style: TextStyle(
-                                      color: Colors.redAccent,
+                                      color: Colors.indigo[900],
                                       fontSize: 22.0,
                                       fontWeight: FontWeight.bold,
                                     ),
@@ -120,7 +134,7 @@ class Profile extends StatelessWidget {
                                     "1300",
                                     style: TextStyle(
                                       fontSize: 20.0,
-                                      color: Colors.pinkAccent,
+                                      color: Colors.indigo[400],
                                     ),
                                   )
                                 ],
@@ -143,11 +157,11 @@ class Profile extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
-                      "Bio:",
+                      "About Me",
                     style: TextStyle(
-                      color: Colors.redAccent,
+                      color: Colors.indigo[900],
                       fontStyle: FontStyle.normal,
-                      fontSize: 28.0
+                      fontSize: 25.0
                     ),
                   ),
                   SizedBox(
@@ -185,15 +199,15 @@ class Profile extends StatelessWidget {
                   gradient: LinearGradient(
                     begin: Alignment.centerRight,
                     end: Alignment.centerLeft,
-                    colors: [Colors.redAccent,Colors.pinkAccent]
+                    colors: [Colors.cyanAccent,Colors.blueAccent]
                   ),
                   borderRadius: BorderRadius.circular(30.0),
                 ),
                 child: Container(
                   constraints: BoxConstraints(maxWidth: 300.0, minHeight: 50.0),
                   alignment: Alignment.center,
-                  child: Text("Contact me",
-                  style: TextStyle(color: Colors.white, fontSize: 26.0, fontWeight:FontWeight.w300),
+                  child: Text("Follow me",
+                  style: TextStyle(color: Colors.black, fontSize: 25.0, fontWeight:FontWeight.w400),
                   ),
                 ),
               )

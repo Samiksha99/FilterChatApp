@@ -79,14 +79,24 @@ class _HomePageState extends State<HomePage> {
                         ),
                          Padding(
                           padding: EdgeInsets.only(right: 10.0, top: 30.0),
-                          child: FloatingActionButton(backgroundColor: Colors.indigo, elevation: 10, child: CircleAvatar(backgroundColor: Colors.white,child: Icon(Icons.account_circle_rounded,size: 40,),foregroundColor: Colors.indigo,),onPressed: (){
-                            Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            Profile()));
-                          },)
-                          
+                          child: FloatingActionButton(
+                            heroTag: "profileBtn",
+                            backgroundColor: Colors.cyan[700], elevation: 10, 
+                            child: CircleAvatar(
+                              backgroundColor: Colors.white,
+                              child: Icon(Icons.account_circle_rounded,size: 40,),
+                              foregroundColor: Colors.cyan[700],
+                            ),
+                            onPressed: (){
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                  Profile()
+                                )
+                              );
+                            },
+                          )
                         ),
                      ],),
                    ),
@@ -104,15 +114,17 @@ class _HomePageState extends State<HomePage> {
                         Padding(
                           padding: EdgeInsets.only(left: 20.0, top: 20.0),
                           child: FloatingActionButton(
+                            heroTag: "galleryBtn",
                               child: Icon(Icons.photo),
-                              backgroundColor: Colors.indigo,
+                              backgroundColor: Colors.cyan[700],
                               onPressed: () {}),
                         ),
                         Padding(
                           padding: EdgeInsets.only(left: 20.0, top: 20.0),
                           child: FloatingActionButton(
+                            heroTag: "cameraBtn",
                               child: Icon(Icons.camera),
-                              backgroundColor: Colors.indigo,
+                              backgroundColor: Colors.cyan[700],
                               onPressed: () async {
                                 cameraDeepArController.snapPhoto();
                                 AlertDialog(
@@ -125,8 +137,9 @@ class _HomePageState extends State<HomePage> {
                         Padding(
                           padding: EdgeInsets.only(left: 20.0, top: 20.0),
                           child: FloatingActionButton(
+                            heroTag: "chatBtn",
                               child: Icon(Icons.chat),
-                              backgroundColor: Colors.indigo,
+                              backgroundColor: Colors.cyan[700],
                               onPressed: () {
                                 Navigator.push(
                                     context,
@@ -162,8 +175,8 @@ class _HomePageState extends State<HomePage> {
                                         alignment: Alignment.center,
                                         decoration: BoxDecoration(
                                             color: active
-                                                ? Colors.deepPurple
-                                                : Colors.deepPurple[50],
+                                                ? Colors.cyan[800]
+                                                : Colors.cyan[100],
                                             shape: BoxShape.circle),
                                         child: Text(
                                           "$p",
