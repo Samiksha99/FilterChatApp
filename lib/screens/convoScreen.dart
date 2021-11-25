@@ -15,7 +15,11 @@ class NewConversationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar:
-            AppBar(automaticallyImplyLeading: true, title: Text(contact.name)),
+            AppBar(
+              automaticallyImplyLeading: true, 
+              title: Text(contact.name),
+              backgroundColor: Colors.cyan,
+            ),
         body: ChatScreen(uid: uid, convoID: convoID, contact: contact));
   }
 }

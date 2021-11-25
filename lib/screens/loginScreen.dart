@@ -71,7 +71,7 @@ class Login extends StatelessWidget {
                                   ),
                                   Text('Sign in with Google',
                                     style: TextStyle(
-                                        fontSize: vpH*0.03,
+                                        fontSize: vpH*0.025,
                                         fontWeight: FontWeight.bold,
                                         color: Colors.cyan[900]
                                     ),

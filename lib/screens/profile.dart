@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -37,10 +38,14 @@ class Profile extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     CircleAvatar(
-                      backgroundImage: NetworkImage(
-                       firebaseUser.photoURL==null? "":firebaseUser.photoURL
-                      ),
-                      radius: 50.0,
+                      radius: 50,
+                      onBackgroundImageError: (exception, stackTrace) {
+                        print("Network Img Exception");
+                        print(exception);
+                      },
+                      backgroundColor: Colors.black,
+                      backgroundImage:
+                          CachedNetworkImageProvider(firebaseUser.photoURL),
                     ),
                     SizedBox(
                       height: 10.0,
@@ -73,7 +78,7 @@ class Profile extends StatelessWidget {
                                     "Posts",
                                     style: TextStyle(
                                       color: Colors.indigo[900],
-                                      fontSize: 22.0,
+                                      fontSize: 20.0,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
@@ -92,13 +97,12 @@ class Profile extends StatelessWidget {
                             ),
                             Expanded(
                               child: Column(
-
                                 children: <Widget>[
                                   Text(
                                     "Followers",
                                     style: TextStyle(
                                       color: Colors.indigo[900],
-                                      fontSize: 22.0,
+                                      fontSize: 20.0,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
@@ -123,7 +127,7 @@ class Profile extends StatelessWidget {
                                     "Follow",
                                     style: TextStyle(
                                       color: Colors.indigo[900],
-                                      fontSize: 22.0,
+                                      fontSize: 20.0,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
@@ -170,7 +174,7 @@ class Profile extends StatelessWidget {
                   Text('My name is Alice and I am  a freelance mobile app developper.\n'
                       'if you need any mobile app for your company then contact me for more informations',
                     style: TextStyle(
-                      fontSize: 22.0,
+                      fontSize: 18.0,
                       fontStyle: FontStyle.italic,
                       fontWeight: FontWeight.w300,
                       color: Colors.black,

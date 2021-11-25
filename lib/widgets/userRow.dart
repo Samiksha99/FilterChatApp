@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:funchat/models/user.dart';
 import 'package:funchat/screens/convoScreen.dart';
 import 'package:funchat/utilis/helperFunctions.dart';
@@ -16,9 +17,26 @@ class UserRow extends StatelessWidget {
           margin: EdgeInsets.all(10.0),
           padding: EdgeInsets.all(10.0),
           child: Center(
-              child: Text(contact.name,
-                  style:
-                      TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold)))),
+              child: Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(5.0),
+                    child: CircleAvatar(
+                      radius: 20,
+                      onBackgroundImageError: (exception, stackTrace) {
+                        print("Network Img Exception");
+                        print(exception);
+                      },
+                      backgroundColor: Colors.black,
+                      backgroundImage:
+                          CachedNetworkImageProvider(contact.profileImg==null? "": contact.profileImg),
+                    ),
+                  ),
+                  Text(contact.name,
+                      style:
+                          TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold)),
+                ],
+              ))),
     );
   }
 

@@ -9,7 +9,7 @@ class Database {
 
   static Future<void> addUser(User user) async {
     await _db.collection('users').doc(user.uid).set(
-        {'id': user.uid, 'name': user.displayName, 'email': user.email});
+        {'id': user.uid, 'name': user.displayName, 'email': user.email, 'profileImgUrl': user.photoURL});
   }
 
   static Stream<List<UserModel>> streamUsersModelUserModel() {

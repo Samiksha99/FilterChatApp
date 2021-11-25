@@ -14,15 +14,16 @@ class HomeBuilder extends StatelessWidget {
     final List<UserModel> _users = Provider.of<List<UserModel>>(context);
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.cyan,
           title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          
           Text(firebaseUser.displayName, style: TextStyle(fontSize: 18)),
           IconButton(
-              onPressed: () => createNewConvo(context),
-              icon: Icon(Icons.add, size: 30))
+            onPressed: () => createNewConvo(context),
+            icon: Icon(Icons.person_add, size: 30)
+          )
         ],
       )),
       body: ListView(
